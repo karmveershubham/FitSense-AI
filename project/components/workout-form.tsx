@@ -18,7 +18,7 @@ const formSchema = z.object({
   weight: z.coerce.number().min(30, "Weight must be at least 30kg").max(250, "Weight must be at most 250kg"),
   height: z.coerce.number().min(120, "Height must be at least 120cm").max(250, "Height must be at most 250cm"),
   experience_level: z.enum(["Beginner", "Intermediate", "Advanced"], { required_error: "Please select your experience level" }),
-  calories: z.coerce.number().min(100, "Target calories must be at least 100").max(1500, "Target calories must be at most 1500"),
+  target_calories: z.coerce.number().min(100, "Target calories must be at least 100").max(1500, "Target calories must be at most 1500"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -36,17 +36,17 @@ export function WorkoutForm() {
       weight: undefined,
       height: undefined,
       experience_level: undefined,
-      calories: undefined,
+      target_calories: undefined,
     },
   });
 
   async function onSubmit(values: FormValues) {
     try {
+      // console.log("Form submitted with values:", values);
       setIsLoading(true);
       setWorkoutData(null);
       
       const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/predict`;
-      
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -60,6 +60,12 @@ export function WorkoutForm() {
       }
       
       const data = await response.json();
+      // const data ={
+      //     "expected_calorie_burn": 300.0,
+      //     "recommended_duration": 44,
+      //     "recommended_workout": "Walking"
+      // }
+      console.log("API response:", data);
       setWorkoutData(data);
       
       toast({
@@ -172,7 +178,7 @@ export function WorkoutForm() {
 
             <FormField
               control={form.control}
-              name="calories"
+              name="target_calories"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Target Calories to Burn</FormLabel>

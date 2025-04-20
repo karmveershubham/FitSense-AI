@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Dumbbell className="h-5 w-5 text-primary" />
-              <span className="font-bold text-lg">FitPlanner</span>
+              <span className="font-bold text-lg">FitSense-AI</span>
             </Link>
             <p className="text-muted-foreground text-sm">
               Personalized workout recommendations tailored to your unique body and fitness goals.

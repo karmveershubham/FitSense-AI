@@ -32,7 +32,7 @@ export function FeaturesSection() {
     <section id="features" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Why Choose FitPlanner?</h2>
+          <h2 className="text-3xl font-bold mb-4">Why Choose FitSense-AI?</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Our advanced algorithm creates customized workout plans based on your
             body metrics and fitness goals.
