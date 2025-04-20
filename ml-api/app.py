@@ -5,7 +5,7 @@ import joblib
 app = Flask(__name__)
 
 # Load trained models
-best_workout_classifier = joblib.load("fitinsight_workout_model.poblib")
+best_workout_classifier = joblib.load("fitinsight_workout_model.joblib")
 duration_regressor = joblib.load("fitinsight_seesion_model.joblib")
 
 def get_bmi(weight, height_cm):
